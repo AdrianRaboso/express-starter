@@ -1,0 +1,10 @@
+{
+  "port": 3100,
+  "dbConfig": {
+    "mongoURI": "mongodb://localhost:27017",
+    "dbName": "starter"
+  },
+  "api": {
+    "prefix": "/v1"
+  }
+}
