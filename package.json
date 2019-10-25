@@ -14,19 +14,26 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mongodb": "^3.3.6",
+    "@types/mongoose": "^5.5.23",
     "config": "^3.2.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongodb": "^3.3.3",
-    "ts-node-dev": "^1.0.0-pre.43",
-    "typescript": "^3.6.4"
+    "mongoose": "^5.7.7"
   },
   "devDependencies": {
     "@types/config": "0.0.35",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.1",
-    "@types/method-override": "0.0.31"
+    "@types/method-override": "0.0.31",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typescript": "^3.6.4"
   },
-  "repository": {}
+  "repository": {
+    "type": "git",
+    "directory": "git@github.com:AdrianRaboso/express-starter.git",
+    "url": "https://github.com/AdrianRaboso/express-starter"
+  }
 }

@@ -6,6 +6,7 @@ build
 
 # Editors
 .idea
+# .vscode => I need the task/debug configuration file
 
 # Misc
 .DS_Store

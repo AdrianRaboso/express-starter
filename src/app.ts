@@ -1,15 +1,18 @@
 import express from 'express';
-import config from 'config';
 
 (async function startServer() {
+  // Set config directory
+  process.env['NODE_CONFIG_DIR'] = './src/config/';
+  const config = require('config');
+
   // Create a new express application instance
   const app: express.Application = express();
-  const port: number = config.get('port');
-
+  
   // Load all app modules
   await require('./loaders').default({ expressApp: app });
-
+  
   // Run server
+  const port: number = config.get('port');
   app.listen(port, function() {
     console.log(`
       ##################################
