@@ -20,7 +20,14 @@ const User = new mongoose.Schema(
       default: 'user'
     }
   },
-  { timestamps: true }
+  {
+    collection: 'users',
+    timestamps: true
+  }
 );
 
-export default mongoose.model<IUser & mongoose.Document>('User', User);
+// export default mongoose.model<IUser & mongoose.Document>('User', User);
+export default {
+  name: 'userModel',
+  model: mongoose.model<IUser & mongoose.Document>('User', User)
+};

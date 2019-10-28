@@ -28,12 +28,14 @@ See more [information](https://code.visualstudio.com/docs/nodejs/nodejs-debuggin
 
 ## TO DO
 - ✔️  Create project structure.
+- ✔️  Configuration to use Typescript.
 - ✔️  Express.js initialization.
 - ✔️  Add environment config.
 - ✔️  MongoDB connection.
 - ✔️  Add Mongoose ORM.
 - ✔️  Create Mongoose Schema.
-- ✔️  Inject models with TypeDi.
-- Inject services with TypeDi.
-- Implement JWT authorization.
+- ✔️  Inject Mongoose models with TypeDi.
+- Add JOI request/response validator.
+- JWT authorization.
+- Implement GraphQL.
 - ...

@@ -1,4 +1,6 @@
 import express from 'express';
+import "reflect-metadata";
+import mongoose from 'mongoose';
 
 (async function startServer() {
   // Set config directory
