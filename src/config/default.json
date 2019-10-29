@@ -6,5 +6,8 @@
   },
   "api": {
     "prefix": "/api/v1"
+  },
+  "jwt": {
+    "secretKey": "2l2ctr42nc2f1l4gr1f3st1-3st3rn0cl31d0m4st01d30"
   }
 }

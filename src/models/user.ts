@@ -12,13 +12,12 @@ const User = new mongoose.Schema(
       type: String,
       lowercase: true,
       unique: true,
-      index: true
+      index: true,
+      validate: {
+        validator: (v: string) =>  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(v),
+      },
     },
     password: String,
-    role: {
-      type: String,
-      default: 'user'
-    }
   },
   {
     collection: 'users',
@@ -26,7 +25,6 @@ const User = new mongoose.Schema(
   }
 );
 
-// export default mongoose.model<IUser & mongoose.Document>('User', User);
 export default {
   name: 'userModel',
   model: mongoose.model<IUser & mongoose.Document>('User', User)

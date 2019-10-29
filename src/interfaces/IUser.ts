@@ -4,3 +4,9 @@ export interface IUser {
   email: string;
   password: string;
 }
+
+export interface IUserInputDTO {
+  name: string;
+  email: string;
+  password: string;
+}
