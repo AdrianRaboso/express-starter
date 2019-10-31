@@ -12,7 +12,6 @@ export default (app: Router) => {
 
   route.get('/', async (req: Request | any, res: Response) => {
     const users = await userService.GetUsers();
-    console.log(req.token);
-    res.status(200).send({ users: users });
+    res.status(200).send(users);
   });
 };

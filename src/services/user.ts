@@ -8,7 +8,7 @@ export default class UserService {
 
   public async GetUsers(): Promise<IUser[]> {
     try {
-      return this.userModel.find();
+      return this.userModel.find({}, {_id: 0, name: 1, email: 1});
     } catch (e) {
       throw e;
     }

@@ -1,7 +1,7 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { Container } from 'typedi';
 import AuthService from '../../services/auth';
-import { IUserInputDTO } from '../../interfaces/IUser';
+import { IUserInputDTO, IUser } from '../../interfaces/IUser';
 const route = Router();
 
 export default (app: Router) => {
@@ -26,6 +26,15 @@ export default (app: Router) => {
       } catch (e) {
         return next(e);
       }
-    },
+    }
   );
+
+  route.post('/signin', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { token } = await authService.SignIn(req.body as IUser);
+      return res.status(201).json({ token });
+    } catch (e) {
+      return next(e);
+    }
+  });
 };

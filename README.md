@@ -1,5 +1,6 @@
 # Express Starter Project
 Project created to take first steps with Express.js, MongoDB and more backend's implementations.
+It is neccessary to install [Node.js](https://nodejs.org/es/) and [MongoDb](https://www.mongodb.com/) in your computer to run the project.
 
 ## Start DEV server
 To start the project all you have to do is install [npm](https://www.npmjs.com/) dependencies with:
@@ -37,5 +38,6 @@ See more [information](https://code.visualstudio.com/docs/nodejs/nodejs-debuggin
 - ✔️  Inject Mongoose models with TypeDi.
 - Add JOI request/response validator.
 - JWT authorization.
+- Response error handler.
 - Implement GraphQL.
 - ...

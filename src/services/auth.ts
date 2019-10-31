@@ -4,6 +4,7 @@ import { randomBytes } from 'crypto';
 import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 import config from 'config';
+import { Error } from 'mongoose';
 
 @Service()
 export default class UserService {
@@ -29,6 +30,26 @@ export default class UserService {
       // Return user and token
       return { user, token };
     } catch (e) {
+      throw e;
+    }
+  }
+
+  public async SignIn(userInput: IUser): Promise<{ token: string }> {
+    try {
+      let token = '';
+      // Get hashed user password
+      const user: any = await this.userModel.findOne({email: userInput.email});
+      // Verify user and pass
+      if (user && await argon2.verify(user.password, userInput.password)) {
+        // Password match
+        token = this.generateToken(user);
+      } else {
+        // Password did not match
+        throw new Error('Wrong credentials!');
+      }
+      // Return token
+      return { token };
+    } catch (e) {
       console.error(e);
       throw e;
     }
@@ -38,7 +59,6 @@ export default class UserService {
     // Sign JWT for userId, expires in 1h
     return jwt.sign(
       {
-        _id: user._id,
         name: user.name,
         email: user.email,
         exp: Math.floor(Date.now() / 1000) + (60 * 60)

@@ -18,33 +18,14 @@ export default ({ app }: { app: Application }) => {
   // Load API routes
   app.use(config.get('api.prefix'), routes());
 
-  // Catch 404 and forward to error handler
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    const err: any = new Error('Not Found');
-    err['status'] = 404;
-    next(err);
-  });
-
   // Error handlers
   app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-    /**
-     * Handle 401 thrown by express-jwt library
-     */
-    if (err.name === 'UnauthorizedError') {
+    if (err) {
       return res
-        .status(err.status)
+        .status(err.status || 500)
         .send({ message: err.message })
         .end();
     }
     return next(err);
-  });
-
-  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-    res.status(err.status || 500);
-    res.json({
-      errors: {
-        message: err.message
-      }
-    });
   });
 };
